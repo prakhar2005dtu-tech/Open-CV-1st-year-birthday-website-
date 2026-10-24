@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 19th Birthday! 🎉</title>
+    <link rel="stylesheet" href="birthday.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-overlay"></div>
+    <div class="stars-container"></div>
+    
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="playBtn" class="play-btn">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" style="display: none;">⏸</span>
+        </button>
+        <button id="muteBtn" class="mute-btn">
+            <span class="volume-icon">🔊</span>
+            <span class="mute-icon" style="display: none;">🔇</span>
+        </button>
+        <div class="music-indicator" id="musicIndicator" style="display: none;">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="nav-btn active" data-section="countdown">Countdown</button>
+            <button class="nav-btn" data-section="tree">Wishes Tree</button>
+            <button class="nav-btn" data-section="messages">Love Messages</button>
+            <button class="nav-btn" data-section="quiz">Our Quiz</button>
+            <button class="nav-btn" data-section="gallery">Memories</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="main-title">Happy 19th Birthday! 🎉</h1>
+            <div class="subtitle">
+                <span class="heart">💖</span>
+                <p>To the most amazing person in my world</p>
+                <span class="heart">💖</span>
+            </div>
+        </div>
+
+        <!-- Countdown Section -->
+        <section id="countdown" class="section active">
+            <div class="section-header">
+                <h2>📅 Countdown to Your Special Day 📅</h2>
+                <p>July 22nd, 2025 - The day an angel was born 👑</p>
+            </div>
+            
+            <div class="countdown-container">
+                <div class="countdown-card">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+
+            <div class="countdown-message">
+                <div class="message-icon">⏰</div>
+                <p>Every second brings us closer to celebrating another year of your beautiful existence. You make every day brighter just by being you! ✨</p>
+            </div>
+        </section>
+
+        <!-- Tree Section -->
+        <section id="tree" class="section">
+            <div class="tree-container">
+                <div class="tree">
+                    <div class="tree-trunk"></div>
+                    <div class="tree-crown">
+                        <div class="tree-layer layer-1"></div>
+                        <div class="tree-layer layer-2"></div>
+                        <div class="tree-layer layer-3"></div>
+                        <div class="tree-glow"></div>
+                    </div>
+                </div>
+                
+                <div class="falling-hearts" id="fallingHearts"></div>
+                <div class="sparkles" id="sparkles"></div>
+                
+                <div class="tree-message">
+                    <h3>Our Love Tree 🌳</h3>
+                    <p>Like this tree, our love grows stronger every day. Each falling heart represents a moment we've shared, a laugh we've had, and a memory we've created together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="section">
+            <div class="messages-header">
+                <h2>⭐ Messages from My Heart ⭐</h2>
+            </div>
+            
+            <div class="message-card">
+                <div class="message-hearts">
+                    <span class="heart-decoration">💖</span>
+                    <span class="heart-decoration">💖</span>
+                    <span class="heart-decoration">💖</span>
+                    <span class="heart-decoration">💖</span>
+                </div>
+                
+                <div class="message-content">
+                    <p class="message-text" id="messageText"></p>
+                    <div class="message-author">
+                        <span class="sparkle">✨</span>
+                        <span id="messageAuthor"></span>
+                        <span class="sparkle">✨</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-navigation">
+                <button class="nav-arrow" id="prevMessage">←</button>
+                <div class="message-dots" id="messageDots"></div>
+                <button class="nav-arrow" id="nextMessage">→</button>
+            </div>
+
+            <div class="bottom-message">
+                <p>These words come straight from my heart to yours. You deserve all the love, happiness, and beautiful moments life has to offer. Happy Birthday, my love! 💖</p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-header">
+                    <h2>💕 How Well Do You Know Us? 💕</h2>
+                    <div class="quiz-progress">
+                        <span>Question <span id="currentQ">1</span> of <span id="totalQ">5</span></span>
+                        <div class="progress-dots" id="progressDots"></div>
+                        <span>Score: <span id="currentScore">0</span></span>
+                    </div>
+                </div>
+
+                <div class="quiz-card">
+                    <h3 class="question-text" id="questionText"></h3>
+                    <div class="options-container" id="optionsContainer"></div>
+                    <div class="explanation" id="explanation" style="display: none;"></div>
+                    <button class="next-btn" id="nextBtn" style="display: none;">Next Question</button>
+                </div>
+            </div>
+
+            <div class="quiz-complete" id="quizComplete" style="display: none;">
+                <div class="confetti" id="confetti"></div>
+                <div class="trophy">🏆</div>
+                <h2>Quiz Complete! 🎊</h2>
+                <div class="final-score" id="finalScore">0/5</div>
+                <p class="score-message" id="scoreMessage"></p>
+                <p>No matter what your score, you're already perfect in my eyes! This quiz was just a fun way to celebrate all our beautiful memories together. Here's to making many more! 💕</p>
+                <button class="restart-btn" id="restartBtn">🔄 Play Again</button>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="gallery-header">
+                <h2>📷 Our Beautiful Memories 📷</h2>
+                <p>Every picture tells our story of love, laughter, and adventure 📸</p>
+            </div>
+
+            <div class="main-photo">
+                <div class="photo-container">
+                    <img id="mainPhoto" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fplatinumlist.net%2Fguide%2Feverything-you-need-to-know-about-img-worlds-of-adventure%2F&psig=AOvVaw0EzKub3DCxo3Et2DFBojk9&ust=1753185973529000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMjLpur0zY4DFQAAAAAdAAAAABAE" alt="Memory">
+                    <div class="photo-overlay">
+                        <p class="photo-caption" id="photoCaption">Our first selfie together - look how happy we were! 📸</p>
+                        <p class="photo-date" id="photoDate">The beginning of forever</p>
+                    </div>
+                    <div class="floating-hearts">
+                        <span class="floating-heart">💖</span>
+                        <span class="floating-heart">💖</span>
+                    </div>
+                </div>
+
+                <div class="photo-navigation">
+                    <button class="photo-nav-btn" id="prevPhoto">‹</button>
+                    <div class="photo-dots" id="photoDots"></div>
+                    <button class="photo-nav-btn" id="nextPhoto">›</button>
+                </div>
+            </div>
+
+            <div class="thumbnail-grid" id="thumbnailGrid"></div>
+
+            <div class="gallery-message">
+                <p>Each photo captures a moment, but together they tell the story of us. Here's to filling many more albums with our adventures, smiles, and love! 📸💕</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Special Gift Button -->
+    <div class="gift-button">
+        <button class="gift-btn" title="Special Surprise! 🎁">🎁</button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="section-navigation">
+        <button class="section-nav-btn" id="prevSection">←</button>
+        <button class="section-nav-btn" id="nextSection">→</button>
+    </div>
+
+    <!-- Modal for full-size photos -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <img class="modal-image" id="modalImage" src="/placeholder.svg" alt="">
+            <div class="modal-caption">
+                <p id="modalCaption"></p>
+                <p id="modalDate"></p>
+            </div>
+            <button class="modal-nav modal-prev" id="modalPrev">‹</button>
+            <button class="modal-nav modal-next" id="modalNext">›</button>
+        </div>
+    </div>
+
+    <script src="birthday.js"></script>
+</body>
+</html>
